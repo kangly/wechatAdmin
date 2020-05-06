@@ -8,6 +8,29 @@
     <script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-    您好！这是一个[admin]示例应用
+    <div class="container-fluid ">
+        <div class="float-right">
+            欢迎 {$adminInfo.username}
+            <a class="btn-link" href="{:url('/login/logout')}">登出</a>
+        </div>
+
+        <span>图文消息列表</span>
+        <ul class="list-group mt-2 mb-2">
+            {volist name='list' id='vo'}
+            <li class="list-group-item">
+                {volist name='vo.content.news_item' id='v'}
+                <div>
+                    <a href="{$v.url}" target="_blank">{$v.title}</a>
+                    <a class="float-right ml-2" href="javascript:void(0)" onclick="alert('删除')">删除</a>
+                    <a class="float-right" href="javascript:void(0)" onclick="alert('编辑')">编辑</a>
+                </div>
+                {/volist}
+            </li>
+            {/volist}
+        </ul>
+        <div>
+            {$pages|raw}
+        </div>
+    </div>
 </body>
 </html>

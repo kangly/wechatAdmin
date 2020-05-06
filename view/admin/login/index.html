@@ -13,12 +13,12 @@
         <form class="form-horizontal" action="{:url('/login/login')}" method="post">
             {:token_field()}
             <div class="form-group">
-                <label for="email">邮箱</label>
-                <input type="text" class="form-control" id="email" value="">
+                <label for="username">用户名</label>
+                <input type="text" class="form-control" id="username" name="username" value="">
             </div>
             <div class="form-group">
                 <label for="password">密码</label>
-                <input type="password" class="form-control" id="password" value="">
+                <input type="password" class="form-control" id="password" name="password" value="">
             </div>
             <button type="submit" class="btn btn-primary">确认</button>
         </form>

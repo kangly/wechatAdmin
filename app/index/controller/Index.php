@@ -8,6 +8,10 @@ use think\facade\View;
 
 class Index extends BaseController
 {
+    /**
+     * @return string
+     * @throws \Exception
+     */
     public function index()
     {
         return View::fetch();
