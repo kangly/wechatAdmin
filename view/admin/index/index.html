@@ -2,32 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>控制台</title>
+    <title>图文消息列表</title>
     <link type="text/css" rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
     <script type="text/javascript" src="/static/js/jquery.min.js"></script>
     <script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="container-fluid ">
-        <div class="float-right">
-            欢迎 {$adminInfo.username}
-            <a class="btn-link" href="{:url('/login/logout')}">登出</a>
+    <div class="container-fluid mt-2 mb-2">
+        <div class="clearfix">
+            <div class="float-right">
+                欢迎 {$adminInfo.username}
+                <a class="btn-link" href="{:url('/login/logout')}">登出</a>
+            </div>
         </div>
 
-        <span>图文消息列表</span>
-        <ul class="list-group mt-2 mb-2">
-            {volist name='list' id='vo'}
-            <li class="list-group-item">
-                {volist name='vo.content.news_item' id='v'}
-                <div>
-                    <a href="{$v.url}" target="_blank">{$v.title}</a>
-                    <a class="float-right ml-2" href="javascript:void(0)" onclick="alert('删除')">删除</a>
-                    <a class="float-right" href="javascript:void(0)" onclick="alert('编辑')">编辑</a>
-                </div>
+        <div class="card mt-3 mb-2">
+            <div class="card-header">
+                图文消息列表
+            </div>
+            <ul class="list-group list-group-flush">
+                {volist name='list' id='vo'}
+                <li class="list-group-item">
+                    {volist name='vo.content.news_item' id='v'}
+                    <div>
+                        <a href="{$v.url}" target="_blank">{$v.title}</a>
+                        <a class="float-right ml-2" href="javascript:void(0)" onclick="alert('删除')">删除</a>
+                        <a class="float-right" href="{:url('/index/update/id/'.$vo.media_id)}" target="_blank">编辑</a>
+                    </div>
+                    {/volist}
+                </li>
                 {/volist}
-            </li>
-            {/volist}
-        </ul>
+            </ul>
+        </div>
+
         <div>
             {$pages|raw}
         </div>

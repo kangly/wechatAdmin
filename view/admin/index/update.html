@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑图文消息</title>
+    <link type="text/css" rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
+<!--    <script type="text/javascript" src="/static/ueditor/ueditor.config.js"></script>-->
+<!--    <script type="text/javascript" src="/static/ueditor/ueditor.all.js"></script>-->
+</head>
+<body>
+    <div class="container-fluid mt-2 mb-2">
+        {volist name='resource.news_item' id='vo'}
+        <div>
+            <p>标题：<a href="{$vo.url}" target="_blank">{$vo.title}</a></p>
+            <p>作者：{$vo.author}</p>
+            <p>图片：<img src="{$vo.thumb_url}"></p>
+            <p>简介：{$vo.digest}</p>
+            <div>
+                内容：{$vo.content|raw}
+                <!--            <script id="content" style="width: 1000px;" type="text/plain">{$vo.content}</script>-->
+                <!--            <script type="text/javascript">-->
+                <!--                var ue = UE.getEditor('content');-->
+                <!--            </script>-->
+            </div>
+        </div>
+        {/volist}
+    </div>
+</body>
+</html>
